@@ -12,18 +12,22 @@
 <body>
   <header>
     <nav>
-      <div id="logo"></div>
-      <a href="">Início</a>
-      <a href="">Cardápio</a>
-      <a href="">Localização</a>
-      <a href="">Sobre</a>
-      <a href="">Entrar</a>
+      <div class="container">
+        <div id="logo"></div>
+        <a href="">Início</a>
+        <a href="">Cardápio</a>
+        <a href="">Localização</a>
+        <a href="">Sobre</a>
+        <a href="">Entrar</a>
+      </div>
     </nav>
   </header>
   <main>
-    <section>
-      <h1 id="titulo_inicial">Descubra um novo <br><span>conceito</span><br> de pizza.</h1>
-      <div id="pizza_inicial"></div>
+    <section id="inicial">
+      <div class="container">
+        <h1 id="titulo_inicial">Descubra um novo <br><span>conceito</span><br> de pizza.</h1>
+        <div id="pizza_inicial"></div>
+      </div>
     </section>
   </main>
   <footer>
@@ -48,14 +52,17 @@ a {
 }
 
 nav {
+  background-color: white;
+  width: 100%;
   padding: 15px;
   box-shadow: -1px 1px 20px #0000000f;
+  z-index: 1;
+  position: fixed;
 }
 
 nav #logo {
   width: 35px;
   height: 35px;
-  margin-top: -5px;
   margin-right: 55px;
   background-image: url(https://i.imgur.com/0hW493J.png);
   background-size: contain;
@@ -70,7 +77,9 @@ nav #logo:hover{
 }
 
 nav a {
+  width: fit-content;
   padding: 5px;
+  margin-right: 7.5%;
   transition: 0.1s;
 }
 
@@ -81,6 +90,10 @@ nav a:hover {
 
 section {
   padding: 10px;
+}
+
+section#inicial {
+  padding-top: 150px;
 }
 
 #titulo_inicial{
@@ -96,9 +109,35 @@ span {
   width: 600px;
   height: 600px;
   float: right;
-  margin-top: -350px;
+  margin-top: -120px;
   background-image: url(https://i.imgur.com/GmJSDhL.png);
   background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      overflow: hidden;
+    }
+    section#inicial {
+      padding-top: 250px;
+    }
+    #pizza_inicial {
+      width: 600px;
+      height: 600px;
+      float: right;
+      margin-top: -250px;
+      background-image: url(https://i.imgur.com/GmJSDhL.png);
+      background-size: cover;
+    }
+  }
 }
   </style>
 </body>
