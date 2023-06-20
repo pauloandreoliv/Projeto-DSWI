@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Tropical Pizzaria - Descubra um novo conceito de pizza</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div id="logo"></div>
+      <a href="">Início</a>
+      <a href="">Cardápio</a>
+      <a href="">Localização</a>
+      <a href="">Sobre</a>
+      <a href="">Entrar</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h1 id="titulo_inicial">Descubra um novo <br><span>conceito</span><br> de pizza.</h1>
+      <div id="pizza_inicial"></div>
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <style>
+    :root {
+  --fundo: #ffffff;
+  --textoprimaria: #1f1f1f;
+  --textosecundaria: #f49e42;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--textoprimaria);
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  color: var(--textoprimaria);
+  text-decoration: none;
+}
+
+nav {
+  padding: 15px;
+  box-shadow: -1px 1px 20px #0000000f;
+}
+
+nav #logo {
+  width: 35px;
+  height: 35px;
+  margin-top: -5px;
+  margin-right: 55px;
+  background-image: url(https://i.imgur.com/0hW493J.png);
+  background-size: contain;
+  border-radius: 50%;
+  float: left;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+nav #logo:hover{
+  opacity: 0.5;
+}
+
+nav a {
+  padding: 5px;
+  transition: 0.1s;
+}
+
+nav a:hover {
+  font-weight: bold;
+  border-bottom: #f49e42 2px solid;
+}
+
+section {
+  padding: 10px;
+}
+
+#titulo_inicial{
+  font-size: 50px;
+}
+
+span {
+  color: white;
+  background: var(--textosecundaria);
+}
+
+#pizza_inicial {
+  width: 600px;
+  height: 600px;
+  float: right;
+  margin-top: -350px;
+  background-image: url(https://i.imgur.com/GmJSDhL.png);
+  background-size: cover;
+}
+  </style>
+</body>
+</html>
