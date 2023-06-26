@@ -110,6 +110,10 @@ section#inicial {
   padding-right: 0px;
 }
 
+section#inicial h1{
+  text-align: left;
+}
+
 section#inicial h1 span {
   color: var(--fundo);
   background: var(--textosecundaria);
