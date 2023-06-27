@@ -110,10 +110,6 @@ section#inicial {
   padding-right: 0px;
 }
 
-section#inicial h1{
-  text-align: left;
-}
-
 section#inicial h1 span {
   color: var(--fundo);
   background: var(--textosecundaria);
@@ -208,7 +204,7 @@ section#localizacao .container{
 .box_unidade {
   width: 350px;
   height: fit-content;
-  min-height: 180px;
+  min-height: 380px;
   margin-right: 15px;
   margin-bottom: 15px;
   padding: 15px;
@@ -220,6 +216,63 @@ section#localizacao .container{
 
 .box_unidade p {
   font-size: 15px;
+}
+
+.box_unidade img {
+  width: 355px;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+section#sobre p {
+  text-align: justify;
+}
+
+section#sobre .linhadotempo {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+    
+section#sobre .linhadotempo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: silver;
+}
+    
+section#sobre .linhadotempo .evento {
+  position: relative;
+  padding: 40px 20px;
+}
+    
+section#sobre .linhadotempo .evento::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: silver;
+}
+    
+section#sobre .linhadotempo .evento .data {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+    
+section#sobre .linhadotempo .evento .conteudo {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
