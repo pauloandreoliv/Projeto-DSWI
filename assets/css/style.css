@@ -2,8 +2,8 @@
 
 :root {
   --fundo: #ffffff;
-  --textoprimaria: #1f1f1f;
-  --textosecundaria: #f49e42;
+  --corprimaria: #1f1f1f;
+  --corsecundaria: #f49e42;
 }
 
 html {
@@ -14,11 +14,11 @@ body{
   font-family: 'Poppins', sans-serif;
   margin: 0;
   background-color: var(--fundo);
-  color: var(--textoprimaria);
+  color: var(--corprimaria);
 }
 
 a {
-  color: var(--textoprimaria);
+  color: var(--corprimaria);
   text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ nav a {
 
 nav a:hover {
   font-weight: bold;
-  border-bottom: var(--textosecundaria) 2px solid;
+  border-bottom: var(--corsecundaria) 2px solid;
 }
 
 nav #responsivo {
@@ -82,7 +82,7 @@ nav #responsivo {
 nav #responsivo #botao_menu {
   position: absolute;
   margin-left: 76%;
-  color: var(--textoprimaria);
+  color: var(--corprimaria);
   font-size: 20px;
   cursor: pointer;
   transition: 0.25s;
@@ -110,9 +110,13 @@ section#inicial {
   padding-right: 0px;
 }
 
+section#inicial h1 {
+  text-align: left;
+}
+
 section#inicial h1 span {
   color: var(--fundo);
-  background: var(--textosecundaria);
+  background: var(--corsecundaria);
 }
 
 #pizza_inicial {
@@ -147,7 +151,7 @@ section#cardapio .container{
   width: 100%;
   height: 80px;
   padding-top: 25px;
-  background-color: var(--textosecundaria);
+  background-color: var(--corsecundaria);
 }
 
 .box_produto .topo .imagem {
@@ -172,7 +176,7 @@ section#cardapio .container{
 button {
   font-family: 'Poppins', sans-serif;
   border: none;
-  background-color: var(--textosecundaria);
+  background-color: var(--corsecundaria);
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -187,7 +191,7 @@ button:hover {
 footer {
   margin-top: 50px;
   padding: 10px;
-  color: var(--textoprimaria);
+  color: var(--corprimaria);
   font-size: 14px;
   text-align: center;
 }
@@ -246,12 +250,12 @@ section#sobre .linhadotempo::before {
   background-color: silver;
 }
     
-section#sobre .linhadotempo .evento {
+section#sobre .linhadotempo .box_evento {
   position: relative;
   padding: 40px 20px;
 }
     
-section#sobre .linhadotempo .evento::before {
+section#sobre .linhadotempo .box_evento::before {
   content: '';
   position: absolute;
   top: 0;
@@ -263,16 +267,16 @@ section#sobre .linhadotempo .evento::before {
   background-color: silver;
 }
     
-section#sobre .linhadotempo .evento .data {
+section#sobre .linhadotempo .box_evento .data {
   font-weight: bold;
   margin-bottom: 10px;
 }
     
-section#sobre .linhadotempo .evento .conteudo {
+section#sobre .linhadotempo .box_evento .conteudo {
   padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--fundo);
+  color: var(--corprimaria);
+  box-shadow: -1px 1px 20px #0000000f;
 }
 
 @media (max-width: 768px) {
