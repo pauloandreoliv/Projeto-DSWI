@@ -288,7 +288,8 @@ section#sobre .linhadotempo .box_evento .conteudo:hover {
 
 section#login .box_login {
   width: 380px;
-  height: 400px;
+  min-height: 400px;
+  height: fit-content;
   border: 1px solid #0000000f;
   box-shadow: 0px 0px 14px #0000000f;
 }
@@ -372,6 +373,16 @@ section#login .box_login .direita ul li {
   margin-top: 10px;
 }
 
+section#login .box_login#cadastro .esquerda {
+  background-image: url(https://i.imgur.com/HE0ufEp.png);
+  background-size: cover;
+  width: 30%;
+  height: 554px;
+  float: left;
+  display: block;
+}
+
+
 input {
     font-family: 'Poppins', sans-serif;
     padding: 10px;
@@ -421,6 +432,10 @@ input {
       display: none;
     }
 
+    section#login .box_login#cadastro .esquerda {
+      width: 0%;
+      display: none;
+    }
     section#login .box_login .direita {
       width: 100%;
     }
