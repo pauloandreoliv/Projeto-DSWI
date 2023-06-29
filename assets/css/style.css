@@ -103,6 +103,7 @@ section h1{
 
 h1 {
   font-size: 50px;
+  word-wrap: break-word;
 }
 
 section#inicial {
@@ -330,7 +331,7 @@ section#login .box_login .esquerda {
   background-image: url(https://i.imgur.com/HE0ufEp.png);
   background-size: cover;
   width: 30%;
-  height: 400px;
+  height: 100%;
   float: left;
   display: block;
 }
@@ -414,6 +415,15 @@ section#pedidos .box_pedido ol {
   overflow-y: scroll;
 }
 
+section#configuracoes ul {
+  list-style: none;
+  margin-left: -50px;
+}
+
+section#configuracoes ul li input {
+  margin-bottom: 15px;
+}
+
 @media (max-width: 768px) {
   .container {
       display: flex;
@@ -443,6 +453,10 @@ section#pedidos .box_pedido ol {
     }
 
     section#localizacao .container{
+      align-items: center;
+    }
+
+    section#configuracoes .container{
       align-items: center;
     }
 
