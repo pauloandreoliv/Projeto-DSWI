@@ -388,6 +388,13 @@ section#login .box_login#cadastro .esquerda {
   display: block;
 }
 
+body#admin section#login .direita center span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  margin-top: 10px;
+}
+
 input {
     font-family: 'Poppins', sans-serif;
     padding: 10px;
