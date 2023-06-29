@@ -7,11 +7,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style_admin.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Tropical Pizzaria - Descubra um novo conceito de pizza</title>
 </head>
 <body>
-  <header>
+    <header>
       <nav id="responsivo">
         <div class="container" id="fixa">
           <div id="botao_menu"><i class="fa-solid fa-bars"></i></div>
@@ -40,9 +40,28 @@
           </ul>
         </nav>
     </section>
-    <section class="direita">
+    <section class="direita" id="adicionar">
+      <h1>Adicionar</h1>
       <div class="container">
-        <h1>Olá,</h1>
+        <form>
+          <ul>
+            <li>
+              <label for="inputnome">Nome</label><br>
+              <input type="text" id="inputnome" name="inputnome">
+            </li>
+            <li>
+              <label for="inputvalor">Valor</label><br>
+              <input type="number" id="inputvalor" name="inputvalor">
+            </li>
+            <li>
+              <label for="inputurl">URL Imagem</label><br>
+              <input type="url" id="inputurl" name="inputurl">
+            </li>
+          </ul>
+          <center>
+            <button type="submit">Enviar</button>
+          </center>
+        </form>
       </div>
     </section>
   </main>
