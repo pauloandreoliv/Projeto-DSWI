@@ -17,6 +17,10 @@ body{
   color: var(--corprimaria);
 }
 
+body#admin {
+  background-color: #ffdfbc;
+}
+
 a {
   color: var(--corprimaria);
   text-decoration: none;
@@ -345,6 +349,7 @@ section#login .box_login a {
 }
 section#login .box_login .direita {
   background-color: white;
+  min-height: 400px;
   width: 70%;
   height: 100%;
   float: right;
