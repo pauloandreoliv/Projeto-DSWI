@@ -15,22 +15,35 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-const dados = {
-  nome: 'Exemplo',
-  idade: 30,
-  email: 'exemplo@email.com',
-  telefone: 'texto',
-  cpf: 'texto',
-  endereco: 'texto',
-  senha: 'texto'
-};
+const cadastrarButton = document.querySelector('button[type="submit"]');
 
-const databaseRef = ref(database, 'usuarios');
+cadastrarButton.addEventListener('click', (event) => {
+	
+  event.preventDefault();
 
-push(databaseRef, dados)
-  .then(() => {
-    console.log('Inserção realizada com sucesso!');
+  const inputNome = document.querySelector('#inputnome').value;
+  const inputCPF = document.querySelector('#inputcpf').value;
+  const inputEndereco = document.querySelector('#inputendereco').value;
+  const inputTelefone = document.querySelector('#inputtelefone').value;
+  const inputEmail = document.querySelector('#inputemail').value;
+  const inputSenha = document.querySelector('#inputsenha').value;
+
+  const dados = {
+    nome: inputNome,
+    cpf: inputCPF,
+    endereco: inputEndereco,
+    telefone: inputTelefone,
+    email: inputEmail,
+    senha: inputSenha
+  };
+
+  const databaseRef = ref(database, 'usuarios');
+
+  push(databaseRef, dados)
+	.then(() => {
+	console.log('Inserção realizada com sucesso!');
   })
   .catch((error) => {
-    console.error('Erro ao realizar a inserção:', error);
+	console.error('Erro ao realizar a inserção:', error);
   });
+});
