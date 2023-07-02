@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-import { mostrarPopup } from "popup.js";
+import { mostrarPopup } from "./popup.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwhBCw983no7qVBlsO7_Dr6YwVDj-wROg",

@@ -511,11 +511,14 @@ section#configuracoes ul li input {
   position: fixed;
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.402);
+  display: none;
 }
 
 #popup .container {
   height: 100vh;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 #popup .container span#botao_close {
