@@ -12,6 +12,16 @@
 </head>
 <body>
   <main>
+	<section id="popup">
+        <div class="container">
+          <span id="botao_close"><i class="fa-solid fa-close"></i></span>
+          <article>
+              <span><i class="fa-solid fa-circle-exclamation"></i></span>
+              <h1>Atenção</h1>
+              <p id="erro_popup"></p>
+          </article>
+        </div>
+    </section>
     <section id="login">
       <div class="container">
         <div class="opcoes">
@@ -24,36 +34,36 @@
           <div class="direita">
             <div class="logo"></div>
             <form>
-              <ul>
-                <li>
-                  <label>Nome</label><br>
-                  <input type="text" placeholder="Seu nome" id="inputnome" name="inputnome">
-                </li>
-                <li>
-                  <label>CPF</label><br>
-                  <input type="text" placeholder="Seu CPF" id="inputcpf" name="inputcpf">
-                </li>
-                <li>
-                  <label>Endereço</label><br>
-                  <input type="text" placeholder="Seu Endereço" id="inputendereco" name="inputendereco">
-                </li>
-                <li>
-                  <label>Telefone</label><br>
-                  <input type="telephone" placeholder="Seu número" id="inputtelefone" name="inputtelefone">
-                </li>
-                <li>
-                  <label>E-mail</label><br>
-                  <input type="text" placeholder="Seu e-mail" id="inputemail" name="inputemail">
-                </li>
-                <li>
-                  <label>Senha</label><br>
-                  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha">
-                </li>
-              </ul>
-              <center>
-                <button type="submit">Cadastrar</button><br>
-              </center>
-            </form>
+			  <ul>
+				<li>
+				  <label>Nome</label><br>
+				  <input type="text" placeholder="Seu nome" id="inputnome" name="inputnome" pattern="^[a-zA-ZÀ-ÿ\s\-]+$" required>
+				</li>
+				<li>
+				  <label>CPF</label><br>
+				  <input type="text" placeholder="Seu CPF" id="inputcpf" name="inputcpf" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" required>
+				</li>
+				<li>
+				  <label>Endereço</label><br>
+				  <input type="text" placeholder="Seu Endereço" id="inputendereco" name="inputendereco" pattern="^[\s\S]+$" required>
+				</li>
+				<li>
+				  <label>Telefone</label><br>
+				  <input type="text" placeholder="Seu número" id="inputtelefone" name="inputtelefone" pattern="^\(\d{2}\)\s?\d{5}-\d{4}$" required>
+				</li>
+				<li>
+				  <label>E-mail</label><br>
+				  <input type="email" placeholder="Seu e-mail" id="inputemail" name="inputemail" pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+				</li>
+				<li>
+				  <label>Senha</label><br>
+				  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha" pattern="^.{6,}$" required>
+				</li>
+			  </ul>
+			  <center>
+				<button>Cadastrar</button><br>
+			  </center>
+			</form>
           </div>
         </div>
       </div>

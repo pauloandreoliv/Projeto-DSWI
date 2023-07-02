@@ -235,3 +235,41 @@ section.direita#cardapio .container .box_item {
     overflow-y: auto;
   }
 }
+
+#popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.402);
+}
+
+#popup .container {
+  height: 100vh;
+  justify-content: center;
+}
+
+#popup .container span#botao_close {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#popup .container article {
+  width: 200px;
+  padding: 15px;
+  background-color: white;
+  text-align: center;
+}
+
+#popup .container article span {
+  font-size: 30px;
+}
+
+#popup .container article p {
+  width: 200px;
+  height: 90px;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-align: justify;
+}

@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+import { mostrarPopup } from "popup.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwhBCw983no7qVBlsO7_Dr6YwVDj-wROg",
@@ -15,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-const cadastrarButton = document.querySelector('button[type="submit"]');
+const cadastrarButton = getElementById("botao_enviar");
 
 cadastrarButton.addEventListener('click', (event) => {
 	
@@ -44,6 +45,6 @@ cadastrarButton.addEventListener('click', (event) => {
 	console.log('Inserção realizada com sucesso!');
   })
   .catch((error) => {
-	console.error('Erro ao realizar a inserção:', error);
+	mostrarPopup(error);
   });
 });
