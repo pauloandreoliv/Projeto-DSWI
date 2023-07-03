@@ -12,3 +12,4 @@ function mostrarPopup(error) {
 	ocument.getElementById("popup").textContent = erro.message;
 }
 
+export { mostrarPopup };
