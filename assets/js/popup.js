@@ -12,4 +12,10 @@ function mostrarPopup(error) {
 	ocument.getElementById("popup").textContent = erro.message;
 }
 
+function mostrarPopupString(erro) {
+    document.getElementById("popup").style.display = "block";
+	ocument.getElementById("popup").textContent = erro;
+}
+
 export { mostrarPopup };
+export { mostrarPopupString };
