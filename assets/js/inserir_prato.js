@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-const cadastrarButton = getElementById("botao_enviar");
+const cadastrarButton = document.getElementById("botao_enviar");
 
 cadastrarButton.addEventListener('click', (event) => {
 	

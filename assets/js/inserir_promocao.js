@@ -23,22 +23,16 @@ cadastrarButton.addEventListener('click', (event) => {
   event.preventDefault();
 
   const inputNome = document.querySelector('#inputnome').value;
-  const inputCPF = document.querySelector('#inputcpf').value;
-  const inputEndereco = document.querySelector('#inputendereco').value;
-  const inputTelefone = document.querySelector('#inputtelefone').value;
-  const inputEmail = document.querySelector('#inputemail').value;
-  const inputSenha = document.querySelector('#inputsenha').value;
+  const inputValor = document.querySelector('#inputvalor').value;
+  const inputUrl = document.querySelector('#inputurl').value;
 
   const dados = {
     nome: inputNome,
-    cpf: inputCPF,
-    endereco: inputEndereco,
-    telefone: inputTelefone,
-    email: inputEmail,
-    senha: inputSenha
+    url: inputUrl,
+    valor: inputValor
   };
 
-  const databaseRef = ref(database, 'usuarios');
+  const databaseRef = ref(database, 'promocoes');
 
   push(databaseRef, dados)
 	.then(() => {
