@@ -9,7 +9,7 @@ function esconderPopup() {
 //Mostrar popup
 function mostrarPopup(erro) {
     document.getElementById("popup").style.display = "block";
-	ocument.getElementById("popup").textContent = erro;
+	document.getElementById("erro_popup").textContent = erro;
 }
 
 export { mostrarPopup };

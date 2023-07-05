@@ -270,8 +270,12 @@ section.direita#cardapio .container .box_item {
   font-size: 30px;
 }
 
+#popup .container article h1 {
+  font-size: 20px;
+}
+
 #popup .container article p {
-  width: 200px;
+  max-width: 240px;
   height: 90px;
   overflow: hidden;
   word-wrap: break-word;

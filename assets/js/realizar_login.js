@@ -18,10 +18,16 @@ const database = getDatabase(app);
 
 const databaseRef = ref(database, 'usuarios');
 
-const inputCpf = '99999999999';
-const inputSenha = '12345678';
+const entrarButton = document.getElementById("botao_enviar");
 
-onValue(databaseRef, (snapshot) => {
+entrarButton.addEventListener('click', (event) => {
+	
+  event.preventDefault();
+
+  const inputNome = document.querySelector('#inputnome').value;
+  const inputSenha = document.querySelector('#inputsenha').value;
+  
+  onValue(databaseRef, (snapshot) => {
     
     const usuarios = snapshot.val();
     
@@ -33,12 +39,13 @@ onValue(databaseRef, (snapshot) => {
         if (cpf === inputCpf) {
             const senha = dadosUsuario.senha;
             if (senha === inputSenha) {
-                console.log("logado com sucesso");
+                mostrarPopup("Logado com sucesso");
             } else {
-                console.log("senha incorreta");
+                mostrarPopup("Senha incorreta");
             }
         } else {
-            console.log("usuário inexistente");
+            mostrarPopup("Usuário inexistente");
         }
     }
   });
+});

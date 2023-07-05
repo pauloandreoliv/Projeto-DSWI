@@ -259,7 +259,12 @@ section#sobre .linhadotempo .box_evento {
   position: relative;
   padding: 40px 20px;
 }
-    
+ 
+section#sobre .linhadotempo .box_evento h2 {
+  text-align: center;
+  background: var(--fundo);
+}
+	
 section#sobre .linhadotempo .box_evento::before {
   content: '';
   position: absolute;
@@ -538,8 +543,12 @@ section#configuracoes ul li input {
   font-size: 30px;
 }
 
+#popup .container article h1 {
+  font-size: 20px;
+}
+
 #popup .container article p {
-  width: 200px;
+  max-width: 240px;
   height: 90px;
   overflow: hidden;
   word-wrap: break-word;
