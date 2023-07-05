@@ -9,7 +9,7 @@ const firebaseConfig = {
     storageBucket: "desenvolvimentoweb1-7361f.appspot.com",
     messagingSenderId: "346518758393",
     appId: "1:346518758393:web:a97b06e672ddcf37881328",
-	databaseURL: "https://desenvolvimentoweb1-7361f-default-rtdb.firebaseio.com/"
+    databaseURL: "https://desenvolvimentoweb1-7361f-default-rtdb.firebaseio.com/"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -24,7 +24,7 @@ entrarButton.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
-  const inputNome = document.querySelector('#inputnome').value;
+  const inputCpf = document.querySelector('#inputcpf').value;
   const inputSenha = document.querySelector('#inputsenha').value;
   
   onValue(databaseRef, (snapshot) => {
