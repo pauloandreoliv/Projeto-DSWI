@@ -36,9 +36,9 @@ cadastrarButton.addEventListener('click', (event) => {
 
   push(databaseRef, dados)
 	.then(() => {
-	console.log('Inserção realizada com sucesso!');
+	mostrarPopup('Prato criado com sucesso!');
   })
   .catch((error) => {
-	mostrarPopup(error);
+	mostrarPopup(error.message);
   });
 });

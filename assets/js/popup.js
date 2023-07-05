@@ -7,15 +7,9 @@ function esconderPopup() {
 }
 
 //Mostrar popup
-function mostrarPopup(error) {
-    document.getElementById("popup").style.display = "block";
-	ocument.getElementById("popup").textContent = erro.message;
-}
-
-function mostrarPopupString(erro) {
+function mostrarPopup(erro) {
     document.getElementById("popup").style.display = "block";
 	ocument.getElementById("popup").textContent = erro;
 }
 
 export { mostrarPopup };
-export { mostrarPopupString };

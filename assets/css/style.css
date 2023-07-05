@@ -396,13 +396,13 @@ body#admin section#login .direita center span {
 }
 
 input {
-    font-family: 'Poppins', sans-serif;
+	max-width: 180px;
     padding: 10px;
     border: none;
     background-color: #f7f7f7;
     color: #9b9b9b;
+    font-family: 'Poppins', sans-serif;
 }
-
 
 section#pedidos {
   flex-wrap: wrap;
