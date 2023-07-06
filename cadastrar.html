@@ -33,37 +33,37 @@
           <div class="esquerda"></div>
           <div class="direita">
             <div class="logo"></div>
-            <form>
-			  <ul>
-				<li>
-				  <label>Nome</label><br>
-				  <input type="text" placeholder="Seu nome" id="inputnome" name="inputnome">
-				</li>
-				<li>
-				  <label>CPF</label><br>
-				  <input type="text" placeholder="Seu CPF" id="inputcpf" name="inputcpf">
-				</li>
-				<li>
-				  <label>Endereço</label><br>
-				  <input type="text" placeholder="Seu Endereço" id="inputendereco" name="inputendereco">
-				</li>
-				<li>
-				  <label>Telefone</label><br>
-				  <input type="text" placeholder="Seu número" id="inputtelefone" name="inputtelefone">
-				</li>
-				<li>
-				  <label>E-mail</label><br>
-				  <input type="email" placeholder="Seu e-mail" id="inputemail" name="inputemail">
-				</li>
-				<li>
-				  <label>Senha</label><br>
-				  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha">
-				</li>
-			  </ul>
-			  <center>
-				<button id="botao_enviar">Cadastrar</button><br>
-			  </center>
-			</form>
+            <form id="cadastro" name="cadastro">
+              <ul>
+                <li>
+                  <label for="inputnome">Nome</label><br>
+                  <input type="text" placeholder="Seu nome" id="inputnome" name="inputnome" pattern="^[\p{L}\s]+$" required>
+                </li>
+                <li>
+                  <label for="inputcpf">CPF</label><br>
+                  <input type="text" placeholder="Seu CPF" id="inputcpf" name="inputcpf" pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" required>
+                </li>
+                <li>
+                  <label for="inputendereco">Endereço</label><br>
+                  <input type="text" placeholder="Seu Endereço" id="inputendereco" name="inputendereco">
+                </li>
+                <li>
+                  <label for="inputtelefone">Celular</label><br>
+                  <input type="text" placeholder="Seu número" id="inputtelefone" name="inputtelefone" pattern="^\(\d{2}\)\s\d{5}-\d{4}$" required>
+                </li>
+                <li>
+                  <label for="inputemail">E-mail</label><br>
+                  <input type="email" placeholder="Seu e-mail" id="inputemail" name="inputemail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                </li>
+                <li>
+                  <label for="inputsenha">Senha</label><br>
+                  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha" pattern="^.{8,}$" required>
+                </li>
+              </ul>
+              <center>
+                <button id="botao_enviar">Cadastrar</button><br>
+              </center>
+            </form>
           </div>
         </div>
       </div>
@@ -81,5 +81,11 @@
     </center>
   </footer>
   <script src="assets/js/inserir_usuario.js" type="module"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  <script type="text/javascript">
+    $("#inputtelefone").mask("(00) 00000-0000");
+	  $("#inputcpf").mask("000.000.000-00");
+   </script>
 </body>
 </html>

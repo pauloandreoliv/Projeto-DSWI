@@ -279,5 +279,5 @@ section.direita#cardapio .container .box_item {
   height: 90px;
   overflow: hidden;
   word-wrap: break-word;
-  text-align: justify;
+  text-align: center;
 }

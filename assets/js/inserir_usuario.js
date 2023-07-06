@@ -28,23 +28,39 @@ cadastrarButton.addEventListener('click', (event) => {
   const inputTelefone = document.querySelector('#inputtelefone').value;
   const inputEmail = document.querySelector('#inputemail').value;
   const inputSenha = document.querySelector('#inputsenha').value;
-
-  const dados = {
-    nome: inputNome,
-    cpf: inputCPF,
-    endereco: inputEndereco,
-    telefone: inputTelefone,
-    email: inputEmail,
-    senha: inputSenha
-  };
-
-  const databaseRef = ref(database, 'usuarios');
-
-  push(databaseRef, dados)
-	.then(() => {
-	  mostrarPopup('Cadastrado com sucesso');
-  })
-  .catch((error) => {
-	  mostrarPopup(error.message);
-  });
+  
+  try {
+    if (inputNome == null || !inputNome.match(/^[\p{L}\s]+$/)) {
+      throw new Error("O nome deve conter apenas letras.");
+    } else if(inputCPF == null || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
+      throw new error("O CPF deve seguir o formato 000.000.000-00");
+    } (inputTelefone == null || !inputTelefone.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
+      throw new Error("O telefone deve estar no formato (00) 90000-0000.");
+    } (inputEmail == null || !inputEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+      throw new Error("O e-mail deve seguir o formato padrão.");
+    } (inputSenha == null || !inputSenha.match(/^.{8,}$/)) {
+      throw new Error("A senha deve conter no mínimo 8 caracters.");
+    } else {
+      const dados = {
+        nome: inputNome,
+        cpf: inputCPF,
+        endereco: inputEndereco,
+        telefone: inputTelefone,
+        email: inputEmail,
+        senha: inputSenha
+      };
+    
+      const databaseRef = ref(database, 'usuarios');
+    
+      push(databaseRef, dados)
+      .then(() => {
+        mostrarPopup('Cadastrado com sucesso');
+      })
+      .catch((error) => {
+        mostrarPopup(error.message);
+      });
+    }
+  } catch (error) {
+    mostrarPopup(error.message);
+  }
 });
