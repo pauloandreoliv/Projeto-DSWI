@@ -31,7 +31,7 @@ cadastrarButton.addEventListener('click', (event) => {
   
   try {
     if (inputNome == null || !inputNome.match(/^[\p{L}\s]+$/)) {
-      throw new Error("O nome deve conter apenas letras.");
+      throw new Error("O nome não pode ser vazio e deve conter apenas letras sem acentos.");
     } else if(inputCPF == null || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
       throw new Error("O CPF deve seguir o formato 000.000.000-00");
     } else if(inputTelefone == null || !inputTelefone.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
