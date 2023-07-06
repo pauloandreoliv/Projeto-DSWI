@@ -22,23 +22,35 @@ cadastrarButton.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
-  const inputNome = document.querySelector('#inputnome').value;
-  const inputValor = document.querySelector('#inputvalor').value;
-  const inputUrl = document.querySelector('#inputurl').value;
-
-  const dados = {
-    nome: inputNome,
-    url: inputUrl,
-    valor: inputValor
-  };
-
-  const databaseRef = ref(database, 'pratos');
-
-  push(databaseRef, dados)
-	.then(() => {
-	mostrarPopup('Prato criado com sucesso!');
-  })
-  .catch((error) => {
-	mostrarPopup(error.message);
-  });
+  const inputNome = document.forms["inserir"]["inputnome"].value;
+  const inputValor = document.forms["inserir"]["inputvalor"].value;
+  const inputUrl = document.forms["inserir"]["inputurl"].value;
+  
+  try {
+    if (inputNome == null) {
+      throw new Error("O nome não pode estar vazio");
+    } else if(inputValor == null) {
+      throw new Error("O valor não pode estar vazio");
+    } else if(inputUrl == null || !inputUrl.match(/^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$/)) {
+      throw new Error("A URL deve seguir o formato padrão.");
+    } else {
+      const dados = {
+        nome: inputNome,
+        url: inputUrl,
+        valor: inputValor
+      };
+    
+      const databaseRef = ref(database, 'pratos');
+    
+      push(databaseRef, dados)
+      .then(() => {
+        mostrarPopup('Prato criado com sucesso!');
+      })
+      .catch((error) => {
+        mostrarPopup(error.message);
+      });
+    }
+  } catch (error) {
+    mostrarPopup(error.message);
+  }
 });

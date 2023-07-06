@@ -24,7 +24,7 @@ entrarButton.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
-  const inputCpf = document.forms["login"]["inputcpf"].value;
+  const inputCPF = document.forms["login"]["inputcpf"].value;
   const inputSenha = document.forms["login"]["inputsenha"].value;
   
   try {

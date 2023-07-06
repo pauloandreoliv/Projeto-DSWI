@@ -53,7 +53,7 @@
     <section class="direita" id="adicionar">
       <h1>Adicionar</h1>
       <div class="container">
-        <form>
+        <form id="inserir" name="inserir">
           <ul>
             <li>
               <label for="inputnome">Nome:</label>
@@ -65,7 +65,7 @@
             </li>
             <li>
               <label for="inputurl">URL da Imagem:</label>
-              <input type="url" id="inputurl" name="inputurl">
+              <input type="url" id="inputurl" name="inputurl" pattern="^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$" required>
             </li>
           </ul>
           <center>

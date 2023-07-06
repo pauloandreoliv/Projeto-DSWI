@@ -54,7 +54,7 @@
       <h1>Promoções</h1>
       <a href="admin_verpromocoes.html"><button><i class="fa-solid fa-eye"></i> Ver promoções</button></a>
       <div class="container">
-         <form>
+         <form id="inserir" name="inserir">
           <ul>
             <li>
               <label for="inputnome">Nome:</label>
@@ -66,7 +66,7 @@
             </li>
             <li>
               <label for="inputurl">URL da Imagem:</label>
-              <input type="url" id="inputurl" name="inputurl">
+              <input type="url" id="inputurl" name="inputurl" pattern="^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$" required>
             </li>
           </ul>
           <center>
