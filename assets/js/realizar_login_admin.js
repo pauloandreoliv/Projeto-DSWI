@@ -28,9 +28,9 @@ entrarButton.addEventListener('click', (event) => {
   const inputSenha = document.forms["entrar"]["inputsenha"].value;
   
   try {
-    if(inputCPF == null || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
+    if(inputCPF.length === 0 || inputCPF == null || inputCPF == undefined || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
         throw new Error("O CPF deve seguir o formato 000.000.000-00");
-    } else if (inputSenha == null) {
+    } else if (inputSenha.length === 0 || inputSenha === null || inputSenha === undefined) {
         throw new Error("A senha não pode estar vazia");
     } else {
         onValue(databaseRef, (snapshot) => {

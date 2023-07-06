@@ -27,11 +27,11 @@ cadastrarButton.addEventListener('click', (event) => {
   const inputUrl = document.forms["inserir"]["inputurl"].value;
   
   try {
-    if (inputNome == null) {
+    if (inputNome.length === 0 || inputNome == null || inputNome == undefined) {
       throw new Error("O nome não pode estar vazio");
-    } else if(inputValor == null) {
+    } else if(inputValor === null || inputValor === undefined) {
       throw new Error("O valor não pode estar vazio");
-    } else if(inputUrl == null || !inputUrl.match(/^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$/)) {
+    } else if(inputUrl.length === 0 || inputUrl == null || inputUrl == undefined || !inputUrl.match(/^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$/)) {
       throw new Error("A URL deve seguir o formato padrão.");
     } else {
       const dados = {
