@@ -22,23 +22,23 @@ cadastrarButton.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
-  const inputNome = document.querySelector('#inputnome').value;
-  const inputCPF = document.querySelector('#inputcpf').value;
-  const inputEndereco = document.querySelector('#inputendereco').value;
-  const inputTelefone = document.querySelector('#inputtelefone').value;
-  const inputEmail = document.querySelector('#inputemail').value;
-  const inputSenha = document.querySelector('#inputsenha').value;
+  const inputNome = document.forms["cadastro"]["inputnome"].value;
+  const inputCPF = document.forms["cadastro"]["inputcpf"].value;
+  const inputEndereco = document.forms["cadastro"]["inputendereco"].value;
+  const inputTelefone = document.forms["cadastro"]["inputtelefone"].value;
+  const inputEmail = document.forms["cadastro"]["inputemail"].value;
+  const inputSenha = document.forms["cadastro"]["inputsenha"].value;
   
   try {
     if (inputNome == null || !inputNome.match(/^[\p{L}\s]+$/)) {
       throw new Error("O nome deve conter apenas letras.");
     } else if(inputCPF == null || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
-      throw new error("O CPF deve seguir o formato 000.000.000-00");
-    } (inputTelefone == null || !inputTelefone.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
+      throw new Error("O CPF deve seguir o formato 000.000.000-00");
+    } else if(inputTelefone == null || !inputTelefone.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
       throw new Error("O telefone deve estar no formato (00) 90000-0000.");
-    } (inputEmail == null || !inputEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+    } else if(inputEmail == null || !inputEmail.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
       throw new Error("O e-mail deve seguir o formato padrão.");
-    } (inputSenha == null || !inputSenha.match(/^.{8,}$/)) {
+    } else if(inputSenha == null || !inputSenha.match(/^.{8,}$/)) {
       throw new Error("A senha deve conter no mínimo 8 caracters.");
     } else {
       const dados = {

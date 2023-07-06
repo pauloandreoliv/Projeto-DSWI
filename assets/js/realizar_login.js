@@ -24,28 +24,38 @@ entrarButton.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
-  const inputCpf = document.querySelector('#inputcpf').value;
-  const inputSenha = document.querySelector('#inputsenha').value;
+  const inputCpf = document.forms["login"]["inputcpf"].value;
+  const inputSenha = document.forms["login"]["inputsenha"].value;
   
-  onValue(databaseRef, (snapshot) => {
+  try {
+    if(inputCPF == null || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
+        throw new Error("O CPF deve seguir o formato 000.000.000-00");
+    } else if (inputSenha == null) {
+        throw new Error("A senha não pode estar vazia");
+    } else {
+        onValue(databaseRef, (snapshot) => {
     
-    const usuarios = snapshot.val();
-    
-    for (const usuario in usuarios) {
-
-        const dadosUsuario = usuarios[usuario];
-        const cpf = dadosUsuario.cpf;
-
-        if (cpf === inputCpf) {
-            const senha = dadosUsuario.senha;
-            if (senha === inputSenha) {
-                mostrarPopup("Logado com sucesso");
-            } else {
-                mostrarPopup("Senha incorreta");
+            const usuarios = snapshot.val();
+            
+            for (const usuario in usuarios) {
+        
+                const dadosUsuario = usuarios[usuario];
+                const cpf = dadosUsuario.cpf;
+                
+                if (cpf === inputCpf) {
+                    const senha = dadosUsuario.senha;
+                    if (senha === inputSenha) {
+                        mostrarPopup("Logado com sucesso");
+                    } else {
+                        mostrarPopup("Senha incorreta");
+                    }
+                } else {
+                    mostrarPopup("Usuário inexistente");
+                }
             }
-        } else {
-            mostrarPopup("Usuário inexistente");
-        }
+          });
     }
-  });
+  } catch (error){
+    mostrarPopup(error.message);
+  }
 });
