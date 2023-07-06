@@ -1,3 +1,7 @@
+import { alterarMenu } from "./logado.js";
+
+alterarMenu();
+
 //Adiciona responsividade do menu
 let menuAberto = false;
 let botao_menu = document.getElementById("botao_menu");

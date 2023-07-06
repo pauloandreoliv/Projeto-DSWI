@@ -42,9 +42,12 @@ entrarButton.addEventListener('click', (event) => {
                 const dadosUsuario = usuarios[usuario];
                 const cpf = dadosUsuario.cpf;
                 
-                if (cpf === inputCpf) {
+                if (cpf === inputCPF) {
                     const senha = dadosUsuario.senha;
                     if (senha === inputSenha) {
+                        localStorage.clear();
+                        localStorage.setItem(dadosUsuario.nome, nomeAdmin);
+                        localStorage.setItem('true', logadoAdmin);
                         mostrarPopup("Logado com sucesso");
                     } else {
                         mostrarPopup("Senha incorreta");
