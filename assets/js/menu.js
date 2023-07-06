@@ -1,6 +1,9 @@
 import { alterarMenu } from "./logado.js";
 
-alterarMenu();
+//
+window.addEventListener('load', function() {
+  alterarMenu();
+});
 
 //Adiciona responsividade do menu
 let menuAberto = false;

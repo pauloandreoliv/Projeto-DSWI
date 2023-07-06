@@ -1,5 +1,5 @@
 var logado = localStorage.getItem('logado');
-var linkMenu = document.querySelector('#logado a');
+var linkMenu = document.querySelector('a#logado');
 
 function alterarMenu() {
     if (!(linkMenu === null)) {
