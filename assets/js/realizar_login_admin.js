@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-const databaseRef = ref(database, 'usuarios');
+const databaseRef = ref(database, 'admins');
 
 const entrarButton = document.getElementById("botao_enviar");
 
