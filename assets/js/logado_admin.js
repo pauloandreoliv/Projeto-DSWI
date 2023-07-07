@@ -2,7 +2,7 @@ const titulo = document.getElementById("titulo");
 const logadoAdmin = localStorage.getItem('logadoAdmin');
 
 function alterarTitulo(){
-    if (logadoAdmin == true) {
+    if (logadoAdmin == 'true') {
         var nome = localStorage.getItem('nomeAdmin');
         titulo.textContent = "Olá, " + nome;
     }

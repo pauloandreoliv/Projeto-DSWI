@@ -50,6 +50,7 @@ entrarButton.addEventListener('click', (event) => {
                         localStorage.setItem('nomeAdmin', nome);
                         localStorage.setItem('logadoAdmin', 'true');
                         mostrarPopup("Logado com sucesso");
+                        window.location.href = "admin_index.html";
                     } else {
                         mostrarPopup("Senha incorreta");
                     }

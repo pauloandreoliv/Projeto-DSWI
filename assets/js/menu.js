@@ -11,11 +11,10 @@ if (!(linkMenu === null)){
   linkMenu.addEventListener('click', (event) => {
 
     event.preventDefault();
-
-    var logado = localStorage.getItem('logado');
-    if(logado === 'true'){
-      sair();
-    }
+    
+    sair();
+    window.location.href = "index.html";
+    
   });
 }
 
