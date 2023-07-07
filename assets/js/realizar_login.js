@@ -41,15 +41,18 @@ entrarButton.addEventListener('click', (event) => {
         
                 const dadosUsuario = usuarios[usuario];
                 const cpf = dadosUsuario.cpf;
-                
+                const senha = dadosUsuario.senha;
+                const nome = dadosUsuario.nome;
+                const endereco = dadosUsuario.endereco;
+                const telefone = dadosUsuario.telefone;
+
                 if (cpf === inputCPF) {
-                    const senha = dadosUsuario.senha;
                     if (senha === inputSenha) {
                         localStorage.clear();
-                        localStorage.setItem(dadosUsuario.nome, nome);
-                        localStorage.setItem(dadosUsuario.endereco, endereco);
-                        localStorage.setItem(dadosUsuario.telefone, telefone);
-                        localStorage.setItem('true', logado);
+                        localStorage.setItem('nome', nome);
+                        localStorage.setItem('endereco', endereco);
+                        localStorage.setItem('telefone', telefone);
+                        localStorage.setItem('logado', 'true');
                         mostrarPopup("Logado com sucesso");
                     } else {
                         mostrarPopup("Senha incorreta");

@@ -1,9 +1,24 @@
-import { alterarMenu } from "./logado.js";
+import { alterarMenu, sair } from "./logado.js";
 
-//
+//Altera menu de acordo com estado do login
 window.addEventListener('load', function() {
   alterarMenu();
 });
+
+//Insere ação de saída no botão, se estiver logado
+const linkMenu = document.querySelector('a#logado');
+if (!(linkMenu === null)){
+  linkMenu.addEventListener('click', (event) => {
+
+    event.preventDefault();
+
+    var logado = localStorage.getItem('logado');
+    if(logado === 'true'){
+      sair();
+    }
+  });
+}
+
 
 //Adiciona responsividade do menu
 let menuAberto = false;

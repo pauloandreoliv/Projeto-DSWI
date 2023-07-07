@@ -1,6 +1,8 @@
 //Fechar popup
 let botao_close = document.getElementById("botao_close");
-botao_close.onclick = esconderPopup;
+if (!(botao_close === null)){ 
+    botao_close.onclick = esconderPopup;
+}
 
 function esconderPopup() {
     document.getElementById("popup").style.display = "none";

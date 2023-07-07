@@ -12,5 +12,13 @@ function alterarMenu() {
         }
     }
 }
+function sair(){
+    if (!(linkMenu === null)) {
+        if (logado === 'true') {
+            localStorage.clear();
+            window.location.href = "index.html";
+        }
+    }
+}
 
-export { alterarMenu };
+export { alterarMenu, sair };

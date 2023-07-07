@@ -32,7 +32,7 @@ nav#responsivo {
 section.esquerda {
   width: 30%;
   min-width: 205px;
-  height: 100vh;
+  min-height: 100vh;
   float: left;
   background-color: #f7f7f7;
   overflow: hidden;
