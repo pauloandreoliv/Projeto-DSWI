@@ -1,4 +1,5 @@
 const titulo = document.getElementById("titulo");
+const logadoAdmin = localStorage.getItem('logadoAdmin');
 
 function alterarTitulo(){
     if (logadoAdmin == true) {

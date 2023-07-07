@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
 });
 
 //Insere ação de saída no botão, se estiver logado
-const linkMenu = document.querySelector('a#logado');
+const linkMenu = document.querySelector('a#sair_usuario');
 if (!(linkMenu === null)){
   linkMenu.addEventListener('click', (event) => {
 
@@ -18,7 +18,6 @@ if (!(linkMenu === null)){
     }
   });
 }
-
 
 //Adiciona responsividade do menu
 let menuAberto = false;
