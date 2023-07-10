@@ -16,9 +16,11 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-const databaseRef = ref(database, 'promocoes');
 
-function mostrar () {
+
+function mostrarPratos () {
+    const databaseRef = ref(database, 'promocoes');
+
     const mostrarPromocoes = document.getElementById('mostrarPromocoes');
 
     mostrarPromocoes.innerHTML = "";
@@ -31,7 +33,7 @@ function mostrar () {
         for (const promocao in promocoes) {
 
             const dadosPromocao = promocoes[promocao];
-            const preco = dadosPromocao.preco;
+            const valor = dadosPromocao.valor;
             const nome = dadosPromocao.nome;
             const url = dadosPromocao.url;
 
@@ -42,7 +44,7 @@ function mostrar () {
                 '</div>'+
                 '<div class="info">'+
                     '<p>'+ nome + '</p>' +
-                    '<h5> R$' + preco + '</h5>'+
+                    '<h5> R$' + valor + '</h5>'+
                 '</div>'+
             '</article>';
             promocaoDiv.id = promocao;
@@ -51,8 +53,61 @@ function mostrar () {
             contPromocao ++;
         }
     });
+
+    if (contPromocao == 0) {
+        mostrarPromocoes.innerHTML = "";
+        mostrarPromocoes.textContent = "Sem promoções disponíveis.";
+    }
+}
+
+function mostrarPromocoes () {
+    const databaseRef = ref(database, 'pratos');
+    
+    const mostrarPratos = document.getElementById('mostrarPratos');
+
+    mostrarPratos.innerHTML = "";
+    let contPrato = 0;
+
+    onValue(databaseRef, (snapshot) => {
+    
+        const pratos = snapshot.val();
+
+        for (const prato in pratos) {
+
+            const dadosPrato = pratos[prato];
+            const valor = dadosPrato.valor;
+            const nome = dadosPrato.nome;
+            const url = dadosPrato.url;
+
+            var pratoDiv = document.createElement('article')
+            pratoDiv.innerHTML = '<article class="box_produto">' +
+                '<div class="topo">' +
+                    '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
+                '</div>'+
+                '<div class="info">'+
+                    '<p>'+ nome + '</p>' +
+                    '<h5> R$' + valor + '</h5>'+
+                '</div>'+
+            '</article>';
+            pratoDiv.id = prato;
+
+            mostrarPratos.appendChild(pratoDiv);
+            contPrato ++;
+        }
+    });
+
+    if (contPrato == 0) {
+        mostrarPratos.innerHTML = "";
+        mostrarPratos.textContent = "Sem pratos disponíveis.";
+    }
 }
 
 window.addEventListener('load', (event) => {
-    mostrar();
+    var caminho = window.location.pathname;
+  
+    if (caminho == "/Projeto-DSWI/cardapio.html"){
+        mostrarPratos()
+    } else {
+        mostrarPromocoes();
+    }
 })
