@@ -18,11 +18,11 @@ function sair(){
 }
 
 function redirecionar(){
-    if (!(logado === 'true')) {
+    if (logado == null) {
         var caminho = window.location.pathname;
   
-        if (caminho == "/configuracoes.html" || caminho == "/pedidos.html" || caminho == "/comprar.html" ){
-            window.location.href = "/entrar.html";
+        if (caminho == "/Projeto-DSWI/configuracoes.html" || caminho == "/Projeto-DSWI/pedidos.html" || caminho == "/Projeto-DSWI/comprar.html" ){
+            window.location.href = "entrar.html";
         }
     }
 }

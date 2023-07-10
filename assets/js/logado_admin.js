@@ -5,8 +5,8 @@ function redirecionar(){
     if (!(logadoAdmin === 'true')) {
         var caminho = window.location.pathname;
   
-        if (caminho == "/admin_index.html" || caminho == "/admin_adicionar.html" || caminho == "/admin_cardapio.html" || caminho == "/admin_pedidos.html" || caminho == "/admin_promocoes.html" || caminho == "/admin_verpromocoes.html"){
-            window.location.href = "/admin.html";
+        if (caminho == "/Projeto-DSWI/admin_index.html" || caminho == "/Projeto-DSWI/admin_adicionar.html" || caminho == "/Projeto-DSWI/admin_cardapio.html" || caminho == "/Projeto-DSWI/admin_pedidos.html" || caminho == "/Projeto-DSWI/admin_promocoes.html" || caminho == "/Projeto-DSWI/admin_verpromocoes.html"){
+            window.location.href = "admin.html";
         }
     }
 }
