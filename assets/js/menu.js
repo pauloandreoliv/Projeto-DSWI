@@ -1,8 +1,9 @@
-import { alterarMenu, sair } from "./logado.js";
+import { alterarMenu, sair, redirecionar } from "./logado.js";
 
 //Altera menu de acordo com estado do login
 window.addEventListener('load', function() {
   alterarMenu();
+  redirecionar();
 });
 
 //Insere ação de saída no botão, se estiver logado

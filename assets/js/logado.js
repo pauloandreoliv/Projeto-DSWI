@@ -17,4 +17,14 @@ function sair(){
     window.location.href = "index.html";
 }
 
-export { alterarMenu, sair };
+function redirecionar(){
+    if (!(logado === 'true')) {
+        var caminho = window.location.pathname;
+  
+        if (caminho == "/configuracoes.html" || caminho == "/pedidos.html" || caminho == "/comprar.html" ){
+            window.location.href = "/entrar.html";
+        }
+    }
+}
+
+export { alterarMenu, sair, redirecionar };
