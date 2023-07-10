@@ -49,6 +49,7 @@ entrarButton.addEventListener('click', (event) => {
                 if (cpf === inputCPF) {
                     if (senha === inputSenha) {
                         localStorage.clear();
+						localStorage.setItem('key', dadosUsuario);
                         localStorage.setItem('nome', nome);
                         localStorage.setItem('endereco', endereco);
                         localStorage.setItem('telefone', telefone);

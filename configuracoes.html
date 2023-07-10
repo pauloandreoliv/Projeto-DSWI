@@ -27,6 +27,16 @@
     </nav>
   </header>
   <main>
+	<section id="popup">
+        <div class="container">
+          <span id="botao_close"><i class="fa-solid fa-close"></i></span>
+          <article>
+              <span><i class="fa-solid fa-circle-exclamation"></i></span>
+              <h1>Atenção</h1>
+              <p id="erro_popup"></p>
+          </article>
+        </div>
+    </section>
     <section id="configuracoes">
       <h1>Configurações</h1>
       <div class="container">
@@ -51,7 +61,7 @@
                 </li>
               </ul>
               <center>
-                <button>Atualizar</button>
+                <button id="botao_enviar">Atualizar</button>
               </center>
           </form>
       </div>
@@ -69,5 +79,6 @@
     </center>
   </footer>
   <script src="assets/js/menu.js" type="module"></script>
+  <script src="assets/js/configurar_usuario.js" type="module"></script>
 </body>
 </html>

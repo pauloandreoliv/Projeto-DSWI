@@ -296,6 +296,10 @@ section#sobre .linhadotempo .box_evento .conteudo:hover {
   color: white;
 }
 
+section#sobre .linhadotempo .box_evento .conteudo h3 {
+  text-align: center;
+}
+
 section#login .box_login {
   width: 380px;
   min-height: 400px;
