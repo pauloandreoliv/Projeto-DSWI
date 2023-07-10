@@ -26,17 +26,17 @@ var janga_imgouiframe = false;
 botao_torre.addEventListener('click', (event) => {
 	
     event.preventDefault();
-
-    console.log('teste');
     
     conteudo_torre.innerHTML = '';
 
     if (torre_imgouiframe == false){
         conteudo_torre.innerHTML = local_torre;
         torre_imgouiframe = true;
+        botao_torre.textContent = "Ver imagem";
     } else {
         conteudo_torre.innerHTML = img_torre;
         torre_imgouiframe = false;
+        botao_torre.textContent = "Ver no mapa";
     }
 });
 
@@ -49,9 +49,11 @@ botao_bv.addEventListener('click', (event) => {
     if (bv_imgouiframe == false){
         conteudo_bv.innerHTML = local_bv;
         bv_imgouiframe = true;
+        botao_bv.textContent = "Ver imagem";
     } else {
         conteudo_bv.innerHTML = img_bv;
         bv_imgouiframe = false;
+        botao_bv.textContent = "Ver no mapa";
     }
 });
 
@@ -64,9 +66,11 @@ botao_cd.addEventListener('click', (event) => {
     if (cd_imgouiframe == false){
         conteudo_cd.innerHTML = local_cd;
         cd_imgouiframe = true;
+        botao_cd.textContent = "Ver imagem";
     } else {
         conteudo_cd.innerHTML = img_cd;
         cd_imgouiframe = false;
+        botao_cd.textContent = "Ver no mapa";
     }
 });
 
@@ -79,8 +83,10 @@ botao_janga.addEventListener('click', (event) => {
     if (janga_imgouiframe == false){
         conteudo_janga.innerHTML = local_janga;
         janga_imgouiframe = true;
+        botao_janga.textContent = "Ver imagem";
     } else {
         conteudo_janga.innerHTML = img_janga;
         janga_imgouiframe = false;
+        botao_janga.textContent = "Ver no mapa";
     }
 });

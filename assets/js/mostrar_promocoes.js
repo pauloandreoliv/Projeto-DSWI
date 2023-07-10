@@ -35,8 +35,8 @@ function mostrar () {
             const nome = dadosPromocao.nome;
             const url = dadosPromocao.url;
 
-            var promocao = 
-            '<article class="box_produto">' +
+            var promocaoDiv = document.createElement('article')
+            promocaoDiv.innerHTML = '<article class="box_produto">' +
                 '<div class="topo">' +
                     '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
                 '</div>'+
@@ -45,8 +45,9 @@ function mostrar () {
                     '<h5> R$' + preco + '</h5>'+
                 '</div>'+
             '</article>';
+            promocaoDiv.id = promocao;
 
-            mostrarPromocoes.appendChild(promocao);
+            mostrarPromocoes.appendChild(promocaoDiv);
             contPromocao ++;
         }
     });

@@ -38,10 +38,10 @@ function remover() {
 function inserir () {
     const inputNome = localStorage.getItem('nome');
     const inputCPF = localStorage.getItem('cpf');
-    const inputEndereco = document.forms["cadastro"]["inputendereco"].value;
-    const inputTelefone = document.forms["cadastro"]["inputtelefone"].value;
-    const inputEmail = document.forms["cadastro"]["inputemail"].value;
-    const inputSenha = document.forms["cadastro"]["inputsenha"].value;
+    const inputEndereco = document.forms["configuracoes"]["inputendereco"].value;
+    const inputTelefone = document.forms["configuracoes"]["inputtelefone"].value;
+    const inputEmail = document.forms["configuracoes"]["inputemail"].value;
+    const inputSenha = document.forms["configuracoes"]["inputsenha"].value;
     
     try {
         if (inputNome.length === 0 || inputNome == null || inputNome == undefined || !inputNome.match(/^[a-zA-Z\s]+$/)) {
@@ -70,7 +70,8 @@ function inserir () {
         
         push(databaseRef, dados)
         .then(() => {
-            mostrarPopup('Cadastrado com sucesso');
+            mostrarPopup('Atualizado com sucesso. Reentre.');
+            window.location.href = 'entrar.html';
         })
         .catch((error) => {
             mostrarPopup(error.message);
