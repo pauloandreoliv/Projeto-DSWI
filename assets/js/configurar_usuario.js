@@ -24,11 +24,7 @@ function remover() {
 
     remove(usuario)
       .then(() => {
-        try{
-            inserir();
-        } catch (error) {
-            mostrarPopup("Erro. Tente novamente.");
-        }
+        inserir();
       })
       .catch((error) => {
         mostrarPopup("Erro. Tente novamente.");
@@ -44,11 +40,7 @@ function inserir () {
     const inputSenha = document.forms["configuracoes"]["inputsenha"].value;
     
     try {
-        if (inputNome.length === 0 || inputNome == null || inputNome == undefined || !inputNome.match(/^[a-zA-Z\s]+$/)) {
-        throw new Error("O nome deve conter apenas letras sem acentos.");
-        } else if(inputCPF.length === 0 || inputCPF == null || inputCPF == undefined || !inputCPF.match(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)) {
-        throw new Error("O CPF deve seguir o formato 000.000.000-00");
-        } else if (inputEndereco.length === 0 || inputEndereco == null || inputEndereco == undefined) {
+        if (inputEndereco.length === 0 || inputEndereco == null || inputEndereco == undefined) {
         throw new Error("O endereço não pode estar vazio.");
         } else if(inputTelefone.length === 0 || inputTelefone == null || inputTelefone == undefined || !inputTelefone.match(/^\(\d{2}\)\s\d{5}-\d{4}$/)) {
         throw new Error("O telefone deve estar no formato (00) 90000-0000.");

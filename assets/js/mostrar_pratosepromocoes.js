@@ -18,7 +18,9 @@ const database = getDatabase(app);
 
 
 
-function mostrarPratos () {
+function mostrarPromocoes () {
+    var tentouBuscar = false;
+
     const databaseRef = ref(database, 'promocoes');
 
     const mostrarPromocoes = document.getElementById('mostrarPromocoes');
@@ -51,6 +53,7 @@ function mostrarPratos () {
 
             mostrarPromocoes.appendChild(promocaoDiv);
             contPromocao ++;
+            tentouBuscar = true;
         }
     });
 
@@ -60,7 +63,9 @@ function mostrarPratos () {
     }
 }
 
-function mostrarPromocoes () {
+function mostrarPratos () {
+    var tentouBuscar = false;
+
     const databaseRef = ref(database, 'pratos');
     
     const mostrarPratos = document.getElementById('mostrarPratos');
@@ -93,6 +98,7 @@ function mostrarPromocoes () {
 
             mostrarPratos.appendChild(pratoDiv);
             contPrato ++;
+            tentouBuscar = true;
         }
     });
 

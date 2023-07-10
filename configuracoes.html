@@ -41,23 +41,22 @@
       <h1>Configurações</h1>
       <div class="container">
           <form id="configuracoes" name="configuracoes">
-            <form>
               <ul>
                 <li>
-                  <label>Endereço</label><br>
+                  <label for="inputendereco">Endereço</label><br>
                   <input type="text" placeholder="Seu Endereço" id="inputendereco" name="inputendereco">
                 </li>
                 <li>
-                  <label>Telefone</label><br>
-                  <input type="telephone" placeholder="Seu número" id="inputtelefone" name="inputtelefone">
+                  <label for="inputtelefone">Celular</label><br>
+                  <input type="text" placeholder="Seu número" id="inputtelefone" name="inputtelefone" pattern="^\(\d{2}\)\s\d{5}-\d{4}$" required>
                 </li>
                 <li>
-                  <label>E-mail</label><br>
-                  <input type="text" placeholder="Seu e-mail" id="inputemail" name="inputemail">
+                  <label for="inputemail">E-mail</label><br>
+                  <input type="email" placeholder="Seu e-mail" id="inputemail" name="inputemail" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                 </li>
                 <li>
-                  <label>Senha</label><br>
-                  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha">
+                  <label for="inputsenha">Senha</label><br>
+                  <input type="password" placeholder="Sua senha" id="inputsenha" name="inputsenha" pattern="^.{8,}$" required>
                 </li>
               </ul>
               <center>
