@@ -52,10 +52,11 @@ entrarButton.addEventListener('click', (event) => {
 						localStorage.setItem('key', usuario);
                         localStorage.setItem('nome', nome);
                         localStorage.setItem('endereco', endereco);
+                        localStorage.setItem('cpf', cpf);
                         localStorage.setItem('telefone', telefone);
                         localStorage.setItem('logado', 'true');
                         mostrarPopup("Logado com sucesso");
-                        window.location.href = "pedidos.html";
+                        setTimeout(() => {  window.location.href = "pedidos.html"; }, 2000);
                     } else {
                         mostrarPopup("Senha incorreta");
                     }

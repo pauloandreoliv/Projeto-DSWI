@@ -39,6 +39,7 @@
     </section>
     <section id="configuracoes">
       <h1>Configurações</h1>
+      <p style="text-align: center;">Para alterar um dado é necessário preencher todos os campos</p>
       <div class="container">
           <form id="configuracoes" name="configuracoes">
               <ul>
@@ -79,5 +80,10 @@
   </footer>
   <script src="assets/js/menu.js" type="module"></script>
   <script src="assets/js/configurar_usuario.js" type="module"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+  <script type="text/javascript">
+    $("#inputtelefone").mask("(00) 00000-0000");
+   </script>
 </body>
 </html>

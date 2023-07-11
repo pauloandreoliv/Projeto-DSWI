@@ -31,22 +31,23 @@
       <div class="logo"></div>
       <nav>
         <ul>
-          <li><a href="admin_index.html"><i class="fa-solid fa-house"></i> Início</a></li>
-           <li><a href="admin_pedidos.html"><i class="fa-solid fa-receipt"></i> Pedidos</a></li>
-           <li><a href="admin_adicionar.html"><i class="fa-solid fa-plus"></i> Adicionar</a></li>
-           <li><a href="admin_cardapio.html"><i class="fa-solid fa-utensils"></i> Cardápio</a></li>
-           <li><a href="admin_promocoes.html"><i class="fa-solid fa-percent"></i> Promoções</a></li>
-           <li id="sair_admin"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a></li>
-          </ul>
+          <a href="admin_index.html"><li><i class="fa-solid fa-house"></i> Início</li></a>
+          <a href="admin_pedidos.html"><li><i class="fa-solid fa-receipt"></i> Pedidos</li></a>
+          <a href="admin_adicionar.html"><li><i class="fa-solid fa-plus"></i> Adicionar</li></a>
+          <a href="admin_cardapio.html"><li><i class="fa-solid fa-utensils"></i> Cardápio</li></a>
+          <a href="admin_promocoes.html"><li><i class="fa-solid fa-percent"></i> Promoções</li></a>
+          <a id="sair_admin_normal"><li><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</li></a>
+         </ul>
         </nav>
     </section>
     <section class="direita" id="cardapio">
       <h1>Ver promoções</h1>
-      <div class="container">
+      <div class="container" id="mostrarPromocoesAdmin">
          <article class="box_item">
           <button><i class="fa-solid fa-trash"></i></button>
-          <h6>Pizza grande de calabresa</h6>
+          <h6>Produto de exemplo</h6>
           <h6>Valor</h6>
+          <a href="" target="_blank"><i class="fa-solid fa-image"></i></a>
         </article>
       </div>
     </section>
@@ -59,5 +60,6 @@
   </footer>
   <script src="assets/js/menuAdmin.js"></script>
   <script src="assets/js/logado_admin.js"></script>
+  <script src="assets/js/mostrar_pratosepromocoes.js" type="module"></script>
 </body>
 </html>

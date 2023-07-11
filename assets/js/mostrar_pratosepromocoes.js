@@ -19,14 +19,11 @@ const database = getDatabase(app);
 
 
 function mostrarPromocoes () {
-    var tentouBuscar = false;
-
     const databaseRef = ref(database, 'promocoes');
 
     const mostrarPromocoes = document.getElementById('mostrarPromocoes');
 
     mostrarPromocoes.innerHTML = "";
-    let contPromocao = 0;
 
     onValue(databaseRef, (snapshot) => {
     
@@ -40,43 +37,32 @@ function mostrarPromocoes () {
             const url = dadosPromocao.url;
 
             var promocaoDiv = document.createElement('article')
-            promocaoDiv.innerHTML = '<article class="box_produto">' +
+            promocaoDiv.innerHTML =
                 '<div class="topo">' +
                     '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
                 '</div>'+
                 '<div class="info">'+
                     '<p>'+ nome + '</p>' +
                     '<h5> R$' + valor + '</h5>'+
-                '</div>'+
-            '</article>';
+                '</div>';
             promocaoDiv.id = promocao;
+            promocaoDiv.classList.add("box_produto");
 
             mostrarPromocoes.appendChild(promocaoDiv);
-            contPromocao ++;
-            tentouBuscar = true;
         }
     });
-
-    if (contPromocao == 0) {
-        mostrarPromocoes.innerHTML = "";
-        mostrarPromocoes.textContent = "Sem promoções disponíveis.";
-    }
 }
 
 function mostrarPratos () {
-    var tentouBuscar = false;
-
     const databaseRef = ref(database, 'pratos');
     
     const mostrarPratos = document.getElementById('mostrarPratos');
 
     mostrarPratos.innerHTML = "";
-    let contPrato = 0;
-
+    
     onValue(databaseRef, (snapshot) => {
     
         const pratos = snapshot.val();
-
         for (const prato in pratos) {
 
             const dadosPrato = pratos[prato];
@@ -85,7 +71,105 @@ function mostrarPratos () {
             const url = dadosPrato.url;
 
             var pratoDiv = document.createElement('article')
-            pratoDiv.innerHTML = '<article class="box_produto">' +
+            pratoDiv.innerHTML = 
+                '<div class="topo">' +
+                    '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
+                '</div>'+
+                '<div class="info">'+
+                    '<p>'+ nome + '</p>' +
+                    '<h5> R$' + valor + '</h5>'+
+                '</div>';
+            pratoDiv.id = prato;
+            pratoDiv.classList.add("box_produto");
+
+            mostrarPratos.appendChild(pratoDiv);
+        }
+    });
+}
+
+
+function mostrarPromocoesAdmin () {
+    const databaseRef = ref(database, 'promocoes');
+
+    const mostrarPromocoes = document.getElementById('mostrarPromocoesAdmin');
+
+    mostrarPromocoes.innerHTML = "";
+
+    onValue(databaseRef, (snapshot) => {
+    
+        const promocoes = snapshot.val();
+
+        for (const promocao in promocoes) {
+
+            const dadosPromocao = promocoes[promocao];
+            const valor = dadosPromocao.valor;
+            const nome = dadosPromocao.nome;
+            const url = dadosPromocao.url;
+
+            var promocaoDiv = document.createElement('article')
+            promocaoDiv.innerHTML = 
+            '<button><i class="fa-solid fa-trash"></i></button>'+
+            '<h6>' + nome +'</h6>'+
+            '<h6>R$'+ valor + '</h6>'+
+            '<a href="' + url +'" target="_blank"><i class="fa-solid fa-image"></i></a>';
+            promocaoDiv.id = promocao;
+            promocaoDiv.classList.add("box_item");
+
+            mostrarPromocoes.appendChild(promocaoDiv);
+        }
+    });
+}
+
+function mostrarPratosAdmin () {
+    const databaseRef = ref(database, 'pratos');
+    
+    const mostrarPratos = document.getElementById('mostrarPratosAdmin');
+
+    mostrarPratos.innerHTML = "";
+    
+    onValue(databaseRef, (snapshot) => {
+    
+        const pratos = snapshot.val();
+        for (const prato in pratos) {
+
+            const dadosPrato = pratos[prato];
+            const valor = dadosPrato.valor;
+            const nome = dadosPrato.nome;
+            const url = dadosPrato.url;
+
+            var pratoDiv = document.createElement('article')
+            pratoDiv.innerHTML = '<button><i class="fa-solid fa-trash"></i></button>'+
+            '<h6>' + nome +'</h6>'+
+            '<h6>R$'+ valor + '</h6>'+
+            '<a href="' + url +'" target="_blank"><i class="fa-solid fa-image"></i></a>';
+            pratoDiv.id = prato;
+            pratoDiv.classList.add("box_item");
+
+            mostrarPratos.appendChild(pratoDiv);
+        }
+    });
+}
+
+
+function mostrarPratosComprar () {
+    const databaseRef = ref(database, 'pratos');
+    
+    const mostrarPratos = document.getElementById('mostrarPratosComprar');
+
+    mostrarPratos.innerHTML = "";
+    
+    onValue(databaseRef, (snapshot) => {
+    
+        const pratos = snapshot.val();
+        for (const prato in pratos) {
+
+            const dadosPrato = pratos[prato];
+            const valor = dadosPrato.valor;
+            const nome = dadosPrato.nome;
+            const url = dadosPrato.url;
+
+            var pratoDiv = document.createElement('article')
+            pratoDiv.innerHTML =
                 '<div class="topo">' +
                     '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
                 '</div>'+
@@ -93,27 +177,29 @@ function mostrarPratos () {
                     '<p>'+ nome + '</p>' +
                     '<h5> R$' + valor + '</h5>'+
                 '</div>'+
-            '</article>';
+                '<button id="botao_comprar">Comprar</button>';
             pratoDiv.id = prato;
+            pratoDiv.classList.add("box_produto");
 
             mostrarPratos.appendChild(pratoDiv);
-            contPrato ++;
-            tentouBuscar = true;
         }
     });
-
-    if (contPrato == 0) {
-        mostrarPratos.innerHTML = "";
-        mostrarPratos.textContent = "Sem pratos disponíveis.";
-    }
 }
 
-window.addEventListener('load', (event) => {
+
+window.addEventListener('load', function() {
+    var url = window.location.href;
     var caminho = window.location.pathname;
-  
-    if (caminho == "/Projeto-DSWI/cardapio.html"){
-        mostrarPratos()
-    } else {
+
+    if (url.includes('/Projeto-DSWI/cardapio.html')){
+        mostrarPratos();
+    } else if (url.includes('/Projeto-DSWI/index.html') || caminho == '/Projeto-DSWI/') {
         mostrarPromocoes();
+    } else if (url.includes('/Projeto-DSWI/admin_verpromocoes.html')) {
+        mostrarPromocoesAdmin();
+    } else if (url.includes('/Projeto-DSWI/admin_cardapio.html')) {
+        mostrarPratosAdmin();
+    } else {
+        mostrarPratosComprar();
     }
-})
+});

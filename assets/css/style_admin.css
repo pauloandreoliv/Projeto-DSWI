@@ -149,10 +149,9 @@ input {
 }
 
 section.direita#cardapio .container {
-  height: 300px;
-  overflow-y: scroll;
+  height: fit-content;
   padding: 10px;
-  flex-flow: column;
+  flex-flow: wrap;
 }
 
 section.direita#cardapio .container .box_item {

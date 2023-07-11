@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+import { getDatabase, ref, push, remove } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 import { mostrarPopup } from "./popup.js";
 
 const firebaseConfig = {
@@ -18,20 +18,44 @@ const database = getDatabase(app);
 
 const databaseRef = ref(database, 'usuarios');
 
-function remover() {
+function remover(inputCPF, inputEmail, inputEndereco, inputNome, inputSenha, inputTelefone) {
     var key = localStorage.getItem('key');
     const usuario = ref(database, 'usuarios/' + key);
 
     remove(usuario)
       .then(() => {
-        inserir();
+        inserir(inputCPF, inputEmail, inputEndereco, inputNome, inputSenha, inputTelefone);
       })
       .catch((error) => {
         mostrarPopup("Erro. Tente novamente.");
       });
 }
 
-function inserir () {
+function inserir (inputCPF, inputEmail, inputEndereco, inputNome, inputSenha, inputTelefone) {
+    const dados = {
+            nome: inputNome,
+            cpf: inputCPF,
+            endereco: inputEndereco,
+            telefone: inputTelefone,
+            email: inputEmail,
+            senha: inputSenha
+    };
+        
+    const databaseRef = ref(database, 'usuarios');
+        
+    push(databaseRef, dados)
+    .then(() => {
+        localStorage.clear();
+        mostrarPopup('Atualizado com sucesso. Reentre.');
+        setTimeout(() => {  window.location.href = "entrar.html"; }, 2000);
+    })
+    .catch((error) => {
+        mostrarPopup(error.message);
+    });
+}
+
+
+function validar(){
     const inputNome = localStorage.getItem('nome');
     const inputCPF = localStorage.getItem('cpf');
     const inputEndereco = document.forms["configuracoes"]["inputendereco"].value;
@@ -49,25 +73,7 @@ function inserir () {
         } else if(inputSenha.length === 0 || inputSenha === null || inputSenha === undefined || !inputSenha.match(/^.{8,}$/)) {
         throw new Error("A senha deve conter no mínimo 8 caracters.");
         } else {
-        const dados = {
-            nome: inputNome,
-            cpf: inputCPF,
-            endereco: inputEndereco,
-            telefone: inputTelefone,
-            email: inputEmail,
-            senha: inputSenha
-        };
-        
-        const databaseRef = ref(database, 'usuarios');
-        
-        push(databaseRef, dados)
-        .then(() => {
-            mostrarPopup('Atualizado com sucesso. Reentre.');
-            window.location.href = 'entrar.html';
-        })
-        .catch((error) => {
-            mostrarPopup(error.message);
-        });
+            remover(inputCPF, inputEmail, inputEndereco, inputNome, inputSenha, inputTelefone);
         }
     } catch (error) {
         mostrarPopup(error.message);
@@ -80,5 +86,5 @@ atualizarButton.addEventListener('click', (event) => {
 
     event.preventDefault();
 
-    remover();
+    validar();
 });

@@ -27,8 +27,17 @@ window.addEventListener('load', function() {
 });
 
 const sair = document.getElementById("sair_admin");
-
 sair.addEventListener('click', (event) => {
+	
+  event.preventDefault();
+
+  localStorage.clear();
+
+  window.location.href = "admin.html";
+});
+
+const sairnormal = document.getElementById("sair_admin_normal");
+sairnormal.addEventListener('click', (event) => {
 	
   event.preventDefault();
 
