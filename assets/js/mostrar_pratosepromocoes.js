@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 import { mostrarPopup } from "./popup.js";
+import { adicionarListenerBotoes } from "./excluir_item.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwhBCw983no7qVBlsO7_Dr6YwVDj-wROg",
@@ -108,7 +109,7 @@ function mostrarPromocoesAdmin () {
 
             var promocaoDiv = document.createElement('article')
             promocaoDiv.innerHTML = 
-            '<button><i class="fa-solid fa-trash"></i></button>'+
+            '<button id="'+ promocao +'" class="my-button"><i class="fa-solid fa-trash"></i></button>'+
             '<h6>' + nome +'</h6>'+
             '<h6>R$'+ valor + '</h6>'+
             '<a href="' + url +'" target="_blank"><i class="fa-solid fa-image"></i></a>';
@@ -117,6 +118,8 @@ function mostrarPromocoesAdmin () {
 
             mostrarPromocoes.appendChild(promocaoDiv);
         }
+
+        adicionarListenerBotoes();
     });
 }
 
@@ -138,7 +141,7 @@ function mostrarPratosAdmin () {
             const url = dadosPrato.url;
 
             var pratoDiv = document.createElement('article')
-            pratoDiv.innerHTML = '<button><i class="fa-solid fa-trash"></i></button>'+
+            pratoDiv.innerHTML = '<button id="'+ prato +'"><i class="fa-solid fa-trash"></i></button>'+
             '<h6>' + nome +'</h6>'+
             '<h6>R$'+ valor + '</h6>'+
             '<a href="' + url +'" target="_blank"><i class="fa-solid fa-image"></i></a>';
@@ -147,6 +150,8 @@ function mostrarPratosAdmin () {
 
             mostrarPratos.appendChild(pratoDiv);
         }
+
+        adicionarListenerBotoes();
     });
 }
 
@@ -196,10 +201,12 @@ window.addEventListener('load', function() {
     } else if (url.includes('/Projeto-DSWI/index.html') || caminho == '/Projeto-DSWI/') {
         mostrarPromocoes();
     } else if (url.includes('/Projeto-DSWI/admin_verpromocoes.html')) {
-        mostrarPromocoesAdmin();
+       mostrarPromocoesAdmin();
     } else if (url.includes('/Projeto-DSWI/admin_cardapio.html')) {
         mostrarPratosAdmin();
     } else {
         mostrarPratosComprar();
     }
 });
+
+export { mostrarPratosAdmin, mostrarPromocoesAdmin };
