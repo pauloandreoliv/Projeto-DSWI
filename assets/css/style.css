@@ -6,6 +6,22 @@
   --corsecundaria: #f49e42;
 }
 
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bcbcbc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818181;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -150,6 +166,7 @@ section#cardapio .container{
   margin-bottom: 15px;
   background-color: white;
   box-shadow: -1px 1px 20px #0000000f;
+  overflow: overlay;
 }
 
 .box_produto .topo {
@@ -172,6 +189,7 @@ section#cardapio .container{
 .box_produto .info {
   margin-top: 80px;
   text-align: center;
+  padding: 10px;
 }
 
 .box_produto button {
