@@ -163,6 +163,28 @@ section.direita#cardapio .container .box_item {
   border: 1px solid #eae9e9;
 }
 
+.box_index {
+  width: 230px;
+  height: 150px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #ff373e;
+  color: white;
+}
+
+.box_index#com_img {
+  background-image: url(https://i.imgur.com/CvDKC9P.png);
+  background-size: cover;
+  box-shadow: inset 0px -170px 0px #0000006e;
+}
+
+.box_index#com_img button {
+  background-color: white;
+  color: #ff373e;
+}
+
 @media (min-width: 768px) { 
   nav#responsivo {
     display: none;
@@ -228,11 +250,16 @@ section.direita#cardapio .container .box_item {
   
   section.direita {
     padding-top: 100px;
+    width: 100%;
   }
 
   section.direita#cardapio .container {
     height: fit-content;
     overflow-y: auto;
+  }
+
+  .box_index {
+    margin-right: 0px;
   }
 }
 

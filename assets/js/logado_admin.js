@@ -1,4 +1,5 @@
 const titulo = document.getElementById("titulo");
+const nomeDia = document.getElementById("nome_dia");
 const logadoAdmin = localStorage.getItem('logadoAdmin');
 
 function redirecionar(){
@@ -18,11 +19,19 @@ function alterarTitulo(){
     }
 }
 
+function inserirData() {
+    var data = new Date();
+    var nomesDosDias = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    var dia = nomesDosDias[data.getDay()];
+    nomeDia.textContent = dia;
+}
+
 window.addEventListener('load', function() {
     redirecionar();
     var caminho = window.location.pathname;
     if (caminho == "/Projeto-DSWI/admin_index.html"){
         alterarTitulo();
+        inserirData();
     }
 });
 
