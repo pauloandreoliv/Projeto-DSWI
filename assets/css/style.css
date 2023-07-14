@@ -150,6 +150,26 @@ section#inicial h1 span {
   cursor: pointer;
 }
 
+section#aviso {
+    color: white;
+    background: var(--corsecundaria);
+    height: 200px;
+}
+
+section#aviso button {
+  background-color: white;
+  color: var(--corsecundaria);
+}
+
+section#aviso #img_pizza{
+    margin-top: -80px;
+    float: right;
+}
+
+section#aviso #img_pizza img{
+  width: 340px;
+}
+
 section#cardapio {
   flex-wrap: wrap;
   align-items: center;
@@ -190,6 +210,8 @@ section#cardapio .container{
   margin-top: 80px;
   text-align: center;
   padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .box_produto button {
@@ -530,6 +552,16 @@ section#configuracoes ul li input {
       transition: 0.5s;
       cursor: pointer;
     }
+	
+	section#aviso #img_pizza {
+      display: none;
+    }
+}
+
+@media (min-width: 768px) {
+  section#aviso #img_pizza {
+      display: block;
+  }
 }
 
 #popup {

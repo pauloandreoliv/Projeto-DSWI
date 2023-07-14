@@ -55,13 +55,14 @@ function mostrarPromocoes () {
 }
 
 function mostrarPratos () {
-    const databaseRef = ref(database, 'pratos');
-    
+    const databaseRefPratos = ref(database, 'pratos');
+    const databaseRefPromos = ref(database, 'promocoes');
+
     const mostrarPratos = document.getElementById('mostrarPratos');
 
     mostrarPratos.innerHTML = "";
     
-    onValue(databaseRef, (snapshot) => {
+    onValue(databaseRefPratos, (snapshot) => {
     
         const pratos = snapshot.val();
         for (const prato in pratos) {
@@ -84,6 +85,33 @@ function mostrarPratos () {
             pratoDiv.classList.add("box_produto");
 
             mostrarPratos.appendChild(pratoDiv);
+        }
+    });
+
+    onValue(databaseRefPromos, (snapshot) => {
+    
+        const promocoes = snapshot.val();
+
+        for (const promocao in promocoes) {
+
+            const dadosPromocao = promocoes[promocao];
+            const valor = dadosPromocao.valor;
+            const nome = dadosPromocao.nome;
+            const url = dadosPromocao.url;
+
+            var promocaoDiv = document.createElement('article')
+            promocaoDiv.innerHTML =
+                '<div class="topo">' +
+                    '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
+                '</div>'+
+                '<div class="info">'+
+                    '<p>'+ nome + '</p>' +
+                    '<h5> R$' + valor + '</h5>'+
+                '</div>';
+            promocaoDiv.id = promocao;
+            promocaoDiv.classList.add("box_produto");
+
+            mostrarPromocoes.appendChild(promocaoDiv);
         }
     });
 }
@@ -157,13 +185,14 @@ function mostrarPratosAdmin () {
 
 
 function mostrarPratosComprar () {
-    const databaseRef = ref(database, 'pratos');
-    
+    const databaseRefPratos = ref(database, 'pratos');
+    const databaseRefPromos = ref(database, 'promocoes');
+
     const mostrarPratos = document.getElementById('mostrarPratosComprar');
 
     mostrarPratos.innerHTML = "";
     
-    onValue(databaseRef, (snapshot) => {
+    onValue(databaseRefPratos, (snapshot) => {
     
         const pratos = snapshot.val();
         for (const prato in pratos) {
@@ -187,6 +216,33 @@ function mostrarPratosComprar () {
             pratoDiv.classList.add("box_produto");
 
             mostrarPratos.appendChild(pratoDiv);
+        }
+    });
+
+    onValue(databaseRefPromos, (snapshot) => {
+    
+        const promocoes = snapshot.val();
+
+        for (const promocao in promocoes) {
+
+            const dadosPromocao = promocoes[promocao];
+            const valor = dadosPromocao.valor;
+            const nome = dadosPromocao.nome;
+            const url = dadosPromocao.url;
+
+            var promocaoDiv = document.createElement('article')
+            promocaoDiv.innerHTML =
+                '<div class="topo">' +
+                    '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
+                '</div>'+
+                '<div class="info">'+
+                    '<p>'+ nome + '</p>' +
+                    '<h5> R$' + valor + '</h5>'+
+                '</div>';
+            promocaoDiv.id = promocao;
+            promocaoDiv.classList.add("box_produto");
+
+            mostrarPratos.appendChild(promocaoDiv);
         }
     });
 }
