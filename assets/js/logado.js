@@ -19,9 +19,9 @@ function sair(){
 
 function redirecionar(){
     if (logado == null) {
-        var caminho = window.location.pathname;
+        var caminho = window.location.href;
   
-        if (caminho == "/Projeto-DSWI/configuracoes.html" || caminho == "/Projeto-DSWI/pedidos.html" || caminho == "/Projeto-DSWI/comprar.html" ){
+        if (caminho.includes('/configuracoes.html') || caminho.includes('/pedidos.html') || caminho.includes('/comprar.html')){
             window.location.href = "entrar.html";
         }
     }

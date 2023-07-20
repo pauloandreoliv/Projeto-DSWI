@@ -2,6 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebas
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 import { mostrarPopup } from "./popup.js";
 import { adicionarListenerBotoes } from "./excluir_item.js";
+import { adicionarItem } from "./pedido.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwhBCw983no7qVBlsO7_Dr6YwVDj-wROg",
@@ -52,9 +53,44 @@ function mostrarPromocoes () {
             mostrarPromocoes.appendChild(promocaoDiv);
         }
     });
+    
 }
 
 function mostrarPratos () {
+    const databaseRefPratos = ref(database, 'pratos');
+
+    const mostrarPratos = document.getElementById('mostrarPratos');
+
+    mostrarPratos.innerHTML = "";
+    
+    onValue(databaseRefPratos, (snapshot) => {
+    
+        const pratos = snapshot.val();
+        for (const prato in pratos) {
+
+            const dadosPrato = pratos[prato];
+            const valor = dadosPrato.valor;
+            const nome = dadosPrato.nome;
+            const url = dadosPrato.url;
+
+            var pratoDiv = document.createElement('article')
+            pratoDiv.innerHTML = 
+                '<div class="topo">' +
+                    '<div class="imagem" style="background-image: url(' + url + ');"></div>'+
+                '</div>'+
+                '<div class="info">'+
+                    '<p>'+ nome + '</p>' +
+                    '<h5> R$' + valor + '</h5>'+
+                '</div>';
+            pratoDiv.id = prato;
+            pratoDiv.classList.add("box_produto");
+
+            mostrarPratos.appendChild(pratoDiv);
+        }
+    });
+}
+
+function mostrarCardapio () {
     const databaseRefPratos = ref(database, 'pratos');
     const databaseRefPromos = ref(database, 'promocoes');
 
@@ -111,7 +147,7 @@ function mostrarPratos () {
             promocaoDiv.id = promocao;
             promocaoDiv.classList.add("box_produto");
 
-            mostrarPromocoes.appendChild(promocaoDiv);
+            mostrarPratos.appendChild(promocaoDiv);
         }
     });
 }
@@ -173,7 +209,6 @@ function mostrarPratosAdmin () {
             '<h6>' + nome +'</h6>'+
             '<h6>R$'+ valor + '</h6>'+
             '<a href="' + url +'" target="_blank"><i class="fa-solid fa-image"></i></a>';
-            pratoDiv.id = prato;
             pratoDiv.classList.add("box_item");
 
             mostrarPratos.appendChild(pratoDiv);
@@ -184,7 +219,7 @@ function mostrarPratosAdmin () {
 }
 
 
-function mostrarPratosComprar () {
+function mostrarCardapioComprar () {
     const databaseRefPratos = ref(database, 'pratos');
     const databaseRefPromos = ref(database, 'promocoes');
 
@@ -211,8 +246,8 @@ function mostrarPratosComprar () {
                     '<p>'+ nome + '</p>' +
                     '<h5> R$' + valor + '</h5>'+
                 '</div>'+
-                '<button id="botao_comprar">Comprar</button>';
-            pratoDiv.id = prato;
+                '<button id="'+ prato +'">Comprar</button>';
+            pratoDiv.id = "article_" + prato; 
             pratoDiv.classList.add("box_produto");
 
             mostrarPratos.appendChild(pratoDiv);
@@ -238,30 +273,48 @@ function mostrarPratosComprar () {
                 '<div class="info">'+
                     '<p>'+ nome + '</p>' +
                     '<h5> R$' + valor + '</h5>'+
-                '</div>';
-            promocaoDiv.id = promocao;
+                '</div>'+
+                '<button id="'+ promocao +'">Comprar</button>';
+            promocaoDiv.id = "article_" + promocao;
             promocaoDiv.classList.add("box_produto");
 
             mostrarPratos.appendChild(promocaoDiv);
         }
+        
+        adicionarListenerBotoesComprar();
     });
 }
 
+function adicionarListenerBotoesComprar() {
+    const botoes = document.getElementsByTagName('button');
+
+    for (let i = 0; i < botoes.length; i++) {
+      botoes[i].addEventListener('click', function() {
+        if (this.id!="botao_limpar" && this.id !="botao_comprar"){
+            var url = window.location.href;
+            if (url.includes('/comprar.html')){
+                adicionarItem(this.id);
+            }
+        }
+      });
+    }
+}
 
 window.addEventListener('load', function() {
     var url = window.location.href;
     var caminho = window.location.pathname;
 
-    if (url.includes('/Projeto-DSWI/cardapio.html')){
-        mostrarPratos();
-    } else if (url.includes('/Projeto-DSWI/index.html') || caminho == '/Projeto-DSWI/') {
+    if (url.includes('/cardapio.html')){
+        mostrarCardapio();
+    } else if (url.includes('/index.html') || caminho == '/Projeto-DSWI/' || caminho == '/') {
         mostrarPromocoes();
-    } else if (url.includes('/Projeto-DSWI/admin_verpromocoes.html')) {
+        mostrarPratos();
+    } else if (url.includes('/admin_verpromocoes.html')) {
        mostrarPromocoesAdmin();
-    } else if (url.includes('/Projeto-DSWI/admin_cardapio.html')) {
+    } else if (url.includes('/admin_cardapio.html')) {
         mostrarPratosAdmin();
     } else {
-        mostrarPratosComprar();
+        mostrarCardapioComprar();
     }
 });
 

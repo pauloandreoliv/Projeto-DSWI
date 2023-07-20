@@ -49,7 +49,7 @@ function removerPromocao(id_parametro){
 
 function remover (id){
     var url = window.location.href;
-    if (url.includes('/Projeto-DSWI/admin_verpromocoes.html')) {
+    if (url.includes('/admin_verpromocoes.html')) {
         removerPromocao(id);
      } else {
         removerPrato(id);

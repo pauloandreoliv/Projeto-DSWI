@@ -170,12 +170,12 @@ section#aviso #img_pizza img{
   width: 340px;
 }
 
-section#cardapio {
+section#cardapio, section#promocoes {
   flex-wrap: wrap;
   align-items: center;
 }
 
-section#cardapio .container{
+section#cardapio .container, section#promocoes .container {
   flex-wrap: wrap;
 }
 
@@ -186,7 +186,6 @@ section#cardapio .container{
   margin-bottom: 15px;
   background-color: white;
   box-shadow: -1px 1px 20px #0000000f;
-  overflow: overlay;
 }
 
 .box_produto .topo {
@@ -214,6 +213,11 @@ section#cardapio .container{
   padding-bottom: 0px;
 }
 
+.box_produto .info p {
+  height: fit-content;
+  max-height: 40px;
+  overflow-y: scroll;
+}
 .box_produto button {
   margin-left: 110px;
 }
@@ -471,8 +475,9 @@ section#pedidos .box_pedido {
   box-shadow: 0px 0px 14px #0000000f;
 }
 
-section#pedidos .box_pedido ol {
-  height: 120px;
+section#pedidos .box_pedido p {
+  word-wrap: break-word;
+  height: 100px;
   overflow-y: scroll;
 }
 
@@ -509,7 +514,7 @@ section#configuracoes ul li input {
       align-items: center;
     }
 
-    section#cardapio .container{
+    section#cardapio .container, section#promocoes .container{
       align-items: center;
     }
 
@@ -607,4 +612,50 @@ section#configuracoes ul li input {
   overflow: hidden;
   word-wrap: break-word;
   text-align: center;
+}
+
+section#pedido .container#botoes {
+  flex-flow: row;
+}
+
+section#pedido .container {
+  flex-flow: column;
+}
+
+section#pedido .container article {
+  width: 90%;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: -1px 1px 20px #0000000f;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+section#pedido .container article:hover {
+  background-color: var(--corsecundaria);
+  color: white;
+}
+
+section#pedido .container#botoes #botao_comprar {
+  margin: 10px;
+  background-color: #6fc25a;
+}
+
+
+section#pedido .container#botoes #botao_limpar {
+  margin: 10px;
+  background-color: #ff0d0d;
+}
+
+#select_formadepg {
+  border: 2px solid var(--corsecundaria);
+  color: var(--corsecundaria);
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  width: 55%;
+  max-width: 200px;
+  cursor: pointer;
 }

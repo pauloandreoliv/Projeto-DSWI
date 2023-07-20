@@ -27,6 +27,42 @@
     </nav>
   </header>
   <main>
+    <section id="popup">
+      <div class="container">
+        <span id="botao_close"><i class="fa-solid fa-close"></i></span>
+        <article>
+            <span><i class="fa-solid fa-circle-exclamation"></i></span>
+            <h1>Atenção</h1>
+            <p id="erro_popup"></p>
+        </article>
+      </div>
+    </section>
+    <section id="pedido">
+      <h1>Pedido</h1>
+      <div class="container">
+          <form name="pagamento" id="pagamento">
+            <center>
+              <label for="select_formadepg">Pagamento:</label><br>
+                <select id="select_formadepg" name="select_formadepg">
+                      <option value="SELECIONE">SELECIONE</option>
+                      <option value="pix">PIX</option>
+                      <option value="dinheiro">DINHEIRO</option>
+                      <option value="cartao">CARTÃO</option>
+                    </select>
+            </center>
+          </form>
+      </div>
+      <div class="container" id="botoes">
+        <button id="botao_comprar"><i class="fa-solid fa-cart-shopping"></i> Comprar</button>
+        <button id="botao_limpar"><i class="fa-solid fa-trash"></i> Limpar</button>
+      </div>
+      <div class="container" id="pedidos">
+            <article>
+                <h4>Nome do produto</h4>
+                <h5>R$00,00</h5>
+            </article>
+        </div>
+    </section>
     <section id="cardapio">
       <h1>Comprar</h1>
       <div class="container" id="mostrarPratosComprar">
@@ -56,5 +92,6 @@
   </footer>
   <script src="assets/js/menu.js" type="module"></script>
   <script src="assets/js/mostrar_pratosepromocoes.js" type="module"></script>
+  <script src="assets/js/pedido.js" type="module"></script>
 </body>
 </html>

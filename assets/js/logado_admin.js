@@ -4,9 +4,9 @@ const logadoAdmin = localStorage.getItem('logadoAdmin');
 
 function redirecionar(){
     if (logadoAdmin == null) {
-        var caminho = window.location.pathname;
+        var caminho = window.location.href;
   
-        if (caminho == "/Projeto-DSWI/admin_index.html" || caminho == "/Projeto-DSWI/admin_adicionar.html" || caminho == "/Projeto-DSWI/admin_cardapio.html" || caminho == "/Projeto-DSWI/admin_pedidos.html" || caminho == "/Projeto-DSWI/admin_promocoes.html" || caminho == "/Projeto-DSWI/admin_verpromocoes.html"){
+        if (caminho.includes('/admin_index.html') || caminho.includes('/admin_adicionar.html') || caminho.includes('/admin_cardapio.html') || caminho.includes('/admin_pedidos.html') || caminho.includes('/admin_promocoes.html') || caminho.includes('/admin_verpromocoes.html')){
             window.location.href = "admin.html";
         }
     }
@@ -28,8 +28,8 @@ function inserirData() {
 
 window.addEventListener('load', function() {
     redirecionar();
-    var caminho = window.location.pathname;
-    if (caminho == "/Projeto-DSWI/admin_index.html"){
+    var caminho = window.location.href;
+    if (caminho.includes('/admin_index.html')){
         alterarTitulo();
         inserirData();
     }
