@@ -371,7 +371,8 @@ section#login .container .opcoes span {
   font-size: 0px;
 }
 
-section#login .container .opcoes span a {
+section#login .container .opcoes span i {
+  color: var(--corprimaria);
   font-size: 13px;
 }
 
@@ -380,7 +381,7 @@ section#login .container .opcoes span:hover {
   font-size: 13px;
 }
 
-section#login .container .opcoes span:hover a {
+section#login .container .opcoes span:hover a, section#login .container .opcoes span:hover i {
   color: white;
 }
 
