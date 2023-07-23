@@ -4,15 +4,15 @@
 [Link](https://pauloandreoliv.github.io/Projeto-DSWI/)
 
 ## Logins de exemplo
-* Administrador (Não é possível cadastrar um novo no site):
-CPF: 123.456.789-10 ou 111.111.111-11
-Senha: 12345678
-Link para login: [Link](https://pauloandreoliv.github.io/Projeto-DSWI/admin.html)
+1. Administrador (Não é possível cadastrar um novo no site):
+   - CPF: 123.456.789-10 ou 111.111.111-11
+   - Senha: 12345678
+   - Link para login: [Link](https://pauloandreoliv.github.io/Projeto-DSWI/admin.html)
 
-* Usuário (É possível cadastrar um novo):
-CPF: 000.000.000-00
-Senha: 12345678
-Link para login: [Link](https://pauloandreoliv.github.io/Projeto-DSWI/entrar.html)
+2. Usuário (É possível cadastrar um novo):
+   - CPF: 000.000.000-00
+   - Senha: 12345678
+   - Link para login: [Link](https://pauloandreoliv.github.io/Projeto-DSWI/entrar.html)
 
 ## Sobre
 
