@@ -29,7 +29,7 @@ cadastrarButton.addEventListener('click', (event) => {
   try {
     if (inputNome.length === 0 || inputNome == null || inputNome == undefined) {
       throw new Error("O nome não pode estar vazio");
-    } else if(inputValor < 0 || inputValor === null || inputValor === undefined) {
+    } else if(inputValor < 0 || inputValor == "" || inputValor == null || inputValor === undefined) {
       throw new Error("O valor não pode estar vazio e deve ser ≥ 0");
     } else if(inputUrl.length === 0 || inputUrl == null || inputUrl == undefined || !inputUrl.match(/^(https?:\/\/|ftp:\/\/)?(www\.)?([a-zA-Z0-9-]+\.){1,}[a-zA-Z]{2,}(\/\S*)?$/)) {
       throw new Error("A URL deve seguir o formato padrão.");
